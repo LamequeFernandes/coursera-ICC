@@ -8,4 +8,4 @@ def maior_primo(x):
          return primo      
       x -= 1 
 
-print(maior_primo(100))
+print(maior_primo(966))
