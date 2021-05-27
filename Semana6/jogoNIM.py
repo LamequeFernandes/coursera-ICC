@@ -21,7 +21,6 @@ def usuario_escolhe_jogada(n, m): #validar se a jogada é validade, caso n seja 
          return num
 
 def partida():
-   print("Bem-vindo ao jogo do NIM! Escolha:\n")
    n = int(input("Quantas peças? "))
    m = int(input("Limite de peças por jogada? "))
    aux = m+1
@@ -63,4 +62,22 @@ def partida():
             break
          print("Agora restam", n, "peças no tabuleiro.")
 
-partida()
+def main():
+   print("Bem-vindo ao jogo do NIM! Escolha:\n")
+   print("1 - para jogar uma partida isolada")
+   escolha = int(input("2 - para jogar um coampeonato "))
+   if escolha == 1:
+      print("\nVocê escolheu uma partida")
+      partida()
+   elif escolha == 2:
+      print("\nVocê escolheu um campeonato!")
+      rodada = 1
+      while rodada < 4:
+         print("\n**** Rodada", rodada,"****\n")
+         partida()
+         rodada+=1
+
+      print("\n**** Final do campeonato! ****")
+      print("\nPlacar: Você 0 X 3 Computador")
+
+main()
