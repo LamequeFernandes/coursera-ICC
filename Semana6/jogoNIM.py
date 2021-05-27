@@ -3,10 +3,14 @@
 def computador_escolhe_jogada(n, m): #qts peças o computador deve tirar do tabuleiro para ganhar
    num = 1
    aux = m+1
+   sobra = n-num
+  
+
    while num < m and num <= n:
+      sobra = n-num
       if num == n:
          return n
-      if num % aux == 0:
+      if sobra % aux == 0:
          return num
       num += 1
    return m
