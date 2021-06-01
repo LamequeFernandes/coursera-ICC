@@ -11,3 +11,9 @@ i = len(lis) - 1
 while i >= 0:
    print(lis[i], end=" ")
    i -= 1
+
+print()
+animes = ["Attack on titans", "Hunter X Hunter", "Mirai Nikki"]
+
+for j in animes:
+   print(j)
