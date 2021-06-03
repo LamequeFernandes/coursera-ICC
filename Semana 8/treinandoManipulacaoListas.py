@@ -30,7 +30,7 @@ print(boysAndGirls)
 meninos_triplicado = meninos *3 #repetição de listas, vetores e arrays
 print(meninos_triplicado)
 
-del boysAndGirls[2]
+del boysAndGirls[2] #deletando elementos dos vetores
 print(boysAndGirls)
 del boysAndGirls[0:3]
 print(boysAndGirls)

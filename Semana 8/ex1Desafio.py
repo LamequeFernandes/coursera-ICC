@@ -1,12 +1,11 @@
 def maior_elemento(lista):
-   aux = 0
-   maior = 0
+   maior = lista[0]
    for i in lista:
-      if i >= aux:
+      if i >= maior:
          maior = i
-      aux = i
    return maior
 
 lista = [10, 5, 7, 11, 8]
-l = maior_elemento(lista)
+lista2 = [-99, -27, -12]
+l = maior_elemento(lista2)
 print(l)

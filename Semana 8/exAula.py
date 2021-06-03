@@ -17,3 +17,4 @@ animes = ["Attack on titans", "Hunter X Hunter", "Mirai Nikki"]
 
 for j in animes:
    print(j)
+
