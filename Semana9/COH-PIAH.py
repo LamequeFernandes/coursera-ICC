@@ -70,15 +70,73 @@ def n_palavras_diferentes(lista_palavras):
     return len(freq)
 
 # Traços linguísticos
-
 def tamanhoMedioPalavras(texto):
-   return 0
+   i = 0
+   somaCaracteres = 0
+   palavras = separa_palavras(texto)
+   qtdPalavras = len(separa_palavras(texto))
+   while i < qtdPalavras:
+      somaCaracteres += len(palavras[i])
+      i += 1
+   return somaCaracteres / qtdPalavras
 
+def typeToke(texto):
+   palavras = separa_palavras(texto)
+   palavrasDiferentes = n_palavras_diferentes(palavras)
+   return len(palavrasDiferentes) / len(palavras)
 
+def hapaxLegomana(texto): 
+   palavras = separa_palavras(texto)
+   palavrasUnicas = n_palavras_unicas(palavras)
+   return len(palavrasUnicas) / len(palavras)
+
+def tamanhoMedioSentencas(texto):
+   i = 0
+   somaCaracteres = 0
+   sentencas = separa_sentencas(texto)
+   while i < len(sentencas):
+      somaCaracteres += len(sentencas[i])
+      i += 1 
+   return somaCaracteres / len(sentencas)
+
+def complexidadeSenteça(texto):
+   i = 0
+   somaFrases = 0
+   sentencas = separa_sentencas(texto)
+   while i < len(sentencas):
+      somaFrases += len(separa_frases(sentencas[i]))
+      i += 1 
+   return somaFrases / len(sentencas)
+
+def tamanhoMedioFrase(texto):
+   i = 0
+   j = 0
+   k = 0
+   numeroFrases = 0
+   caracteresFrases = 0
+   sentencas = separa_sentencas(texto)
+   while i < len(sentencas):
+      frases = separa_frases(sentencas[i])
+      numeroFrases += len(frases)
+      while j < len(frases):
+         palavras = separa_palavras(frases[j])
+         while k < len(palavras):
+            caracteresFrases += len(palavras[k])
+            k += 1  
+         j += 1
+      i += 1
+   return caracteresFrases / numeroFrases
 
 def compara_assinatura(as_a, as_b):
-    '''IMPLEMENTAR. Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade nas assinaturas.'''
-    pass
+   tracosLinguisticos = [tamanhoMedioPalavras(as_a), tamanhoMedioPalavras(as_b), typeToke(as_a), typeToke(as_b), hapaxLegomana(as_a), hapaxLegomana(as_b), tamanhoMedioSentencas(as_a), tamanhoMedioSentencas(as_b), complexidadeSenteça(as_a), complexidadeSenteça(as_b), tamanhoMedioFrase(as_a), tamanhoMedioFrase(as_b)]
+   i = 0
+   while i < 12:
+       soma = 0
+       somatorio = tracosLinguisticos[i] - tracosLinguisticos[i + 1]
+       soma += abs(somatorio)      
+       i += 2
+   return soma / 6
+
 
 def calcula_assinatura(texto):
     '''IMPLEMENTAR. Essa funcao recebe um texto e deve devolver a assinatura do texto.'''
@@ -88,4 +146,3 @@ def avalia_textos(textos, ass_cp):
     '''IMPLEMENTAR. Essa funcao recebe uma lista de textos e uma assinatura ass_cp e deve devolver o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
     pass
 
-print(separa_palavras("lameque, fernandes azevedo. QUero me casar; pra ondem."))

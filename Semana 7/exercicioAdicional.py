@@ -8,7 +8,7 @@ def ehPrimo(n):
          return True
    return False     
 
-def n_primo(x):
+def n_primos(x):
    i = 0
    qtsPrimos = 0
    while i <= x:   
@@ -17,7 +17,8 @@ def n_primo(x):
       i += 1
    return qtsPrimos
 
-print(n_primo(121))
+print(n_primos(121))
+
 
 
 
